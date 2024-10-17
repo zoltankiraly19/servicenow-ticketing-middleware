@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 import requests
+from flask_cors import CORS  # CORS támogatás hozzáadása
 
 app = Flask(__name__)
+CORS(app)  # Engedélyezzük a CORS kéréseket az alkalmazásra
 
 @app.route('/get_servicenow_data', methods=['POST'])
 def get_servicenow_data():

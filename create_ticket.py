@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 import requests
+from flask_cors import CORS  # CORS támogatás hozzáadása
 
 app = Flask(__name__)
+CORS(app)  # Engedélyezzük a CORS kéréseket az alkalmazásra
 
 @app.route('/create_ticket', methods=['POST'])
 def create_ticket():
@@ -29,4 +31,3 @@ def create_ticket():
 
 if __name__ == '__main__':
     app.run(debug=True)
- 
