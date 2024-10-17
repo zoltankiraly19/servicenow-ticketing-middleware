@@ -3,7 +3,7 @@ import requests
 from flask_cors import CORS  # CORS támogatás hozzáadása
 
 app = Flask(__name__)
-CORS(app)  # Engedélyezzük a CORS kéréseket az alkalmazásra
+CORS(app)
 
 @app.route('/create_ticket', methods=['POST'])
 def create_ticket():
@@ -17,7 +17,7 @@ def create_ticket():
 
     ticket_data = {
         "short_description": data.get('short_description'),
-        "assignment_group": data.get('assignment_group'),
+        "assignment_group": data.get('assignment_group_sys_id'),  # Itt a sys_id-t küldjük el
         "priority": data.get('priority'),
         "caller_id": data.get('caller_id')
     }

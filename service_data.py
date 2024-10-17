@@ -20,7 +20,9 @@ def get_servicenow_data():
     
     if response.status_code == 200:
         groups = response.json().get('result', [])
-        return jsonify({"assignment_groups": groups}), 200
+        # Csak a csoportok neveit és sys_id-kat adja vissza
+        group_data = [{"name": group["name"], "sys_id": group["sys_id"]} for group in groups]
+        return jsonify({"assignment_groups": group_data}), 200
     else:
         return jsonify({"error": "Failed to retrieve assignment groups", "details": response.text}), 400
 
