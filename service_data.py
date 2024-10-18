@@ -27,4 +27,4 @@ def get_servicenow_data():
         return jsonify({"error": "Failed to retrieve assignment groups", "details": response.text}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8080)  # Itt az 5001-es porton fut
+    app.run(debug=True, host='0.0.0.0', port=6000)  
